@@ -42,7 +42,7 @@ regd_users.post("/login", (req, res) => {
 regd_users.post("/auth/review/:isbn", (req, res) => {
     const { isbn } = req.params;
     const { review } = req.query;
-    const username = req.session.authorization?.username; // ✅ FIXED: Get username from session
+    const username = req.session.authorization?.username; 
 
     if (!username) {
         return res.status(401).json({ message: "Unauthorized. Please log in." });
@@ -67,8 +67,7 @@ regd_users.post("/auth/review/:isbn", (req, res) => {
 
 regd_users.delete("/auth/review/:isbn", (req, res) => {
     const { isbn } = req.params;
-    const username = req.session.authorization?.username; // ✅ FIXED: Get username from session
-
+    const username = req.session.authorization?.username; 
     if (!username) {
         return res.status(401).json({ message: "Unauthorized. Please log in." });
     }
